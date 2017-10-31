@@ -1,8 +1,0 @@
-USERNAME=ben.walker.dev@jivesoftware.com
-PASSWORD=Passw0rd!
-COGNITO_REGION=us-west-2
-COGNITO_USER_POOL_ID=us-west-2_Kk5TEXLQD
-COGNITO_APP_CLIENT_ID=3l2ijdtdldb9vjkik7gufeijqf
-IDENTITY_POOL_ID=us-west-2:ee07e870-c8d1-4015-803e-53f61813eb30
-API_GATEWAY_REGION=us-west-2
-API_GATEWAY_URL=https://q8gyipol40.execute-api.us-west-2.amazonaws.com/prod
