@@ -3,13 +3,12 @@ import { success, failure } from "./libs/response-lib";
 
 export async function main(event, context, callback) {
     const params = {
-        TableName: "notes",
+        TableName: "ttt-games",
         Key: {
-            userId: event.requestContext.identity.cognitoIdentityId,
-            noteId: event.pathParameters.id
+            gameId: event.pathParameters.id
         }
     }
-    
+
     try {
         const result = await dynamoDbLib.call("get", params);
         if (result.Item) {

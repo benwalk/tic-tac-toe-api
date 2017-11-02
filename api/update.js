@@ -4,26 +4,27 @@ import { success, failure } from "./libs/response-lib";
 export async function main(event, context, callback) {
     // Request body is passed in as a JSON encoded string in 'event.body'
     const data = JSON.parse(event.body);
-    
+
     const params = {
-        TableName: "notes",
+        TableName: "ttt-games",
         Key: {
-            userId: event.requestContext.identity.cognitoIdentityId,
-            noteId: event.pathParameters.id
+          gameId: event.pathParameters.id
         },
-        UpdateExpression: "SET content = :content, attachment = :attachment",
+        UpdateExpression:
+          "SET status = :status, players = :players, state = :state",
         ExpressionAttributeValues: {
-            ":content": data.content ? data.content : null,
-            ":attachment": data.attachment ? data.attachment : null
+          ":status": data.status ? data.status : null,
+          ":players": data.players ? data.players : null,
+          ":state": data.state ? data.state : null
         },
         ReturnValues: "ALL_NEW"
     };
-        
+
     try {
         const result = await dynamoDbLib.call("update", params);
         callback(null, success({ status: true }));
-    } 
+    }
     catch (e) {
         callback(null, failure({ status: false }));
-    }    
+    }
 }
