@@ -23,5 +23,13 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "uuid": "^3.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benwalk/tic-tac-toe-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/benwalk/tic-tac-toe-api/issues"
+  },
+  "homepage": "https://github.com/benwalk/tic-tac-toe-api#readme"
 }

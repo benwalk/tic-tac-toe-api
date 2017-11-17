@@ -22,6 +22,7 @@ export async function main(event, context, callback) {
         callback(null, success(params.Item));
     }
     catch (e) {
+        console.log(`Error (${e.statusCode}): ${e.message}`);
         callback(null, failure({ status: false }));
     }
 }

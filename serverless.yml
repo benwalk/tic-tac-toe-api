@@ -31,64 +31,64 @@ provider:
 functions:
 
   # Defines an HTTP API endpoint that calls the main function in api/create.js
-  # - path: url path is /create
+  # - path: url path is /games
   # - method: POST request
   # - cors: enabled CORS (Cross-Origin Resource Sharing) for browser cross
   #     domain api call
   # - authorizer: authenticate using the AWS IAM role
   create:
-    handler: create.main
+    handler: api/create.main
     events:
       - http:
-          path: notes
+          path: games
           method: post
           cors: true
           authorizer: aws_iam
 
   # Defines an HTTP API endpoint that calls the main function in get.js
-  # - path: url path is /notes/{id}
+  # - path: url path is /games/{id}
   # - method: GET request
   get:
-    handler: get.main
+    handler: api/get.main
     events:
       - http:
-          path: notes/{id}
+          path: games/{id}
           method: get
           cors: true
           authorizer: aws_iam
 
   # Defines an HTTP API endpoint that calls the main function in list.js
-  # - path: url path is /notes
+  # - path: url path is /games
   # - method: GET request
   list:
-    handler: list.main
+    handler: api/list.main
     events:
       - http:
-          path: notes
+          path: games
           method: get
           cors: true
           authorizer: aws_iam
 
   # Defines an HTTP API endpoint that calls the main function in update.js
-  # - path: url path is /notes/{id}
+  # - path: url path is /games/{id}
   # - method: PUT request
   update:
-    handler: update.main
+    handler: api/update.main
     events:
       - http:
-          path: notes/{id}
+          path: games/{id}
           method: put
           cors: true
           authorizer: aws_iam
 
   # Defines an HTTP API endpoint that calls the main function in delete.js
-  # - path: url path is /notes/{id}
+  # - path: url path is /games/{id}
   # - method: DELETE request
   delete:
-    handler: delete.main
+    handler: api/delete.main
     events:
       - http:
-          path: notes/{id}
+          path: games/{id}
           method: delete
           cors: true
           authorizer: aws_iam
