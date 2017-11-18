@@ -91,23 +91,16 @@ var main = exports.main = function () {
                 switch (_context.prev = _context.next) {
                     case 0:
                         params = {
-                            TableName: "ttt-games",
-                            Key: {
-                                gameId: event.pathParameters.id
-                            }
+                            TableName: "ttt-games"
                         };
                         _context.prev = 1;
                         _context.next = 4;
-                        return dynamoDbLib.call("get", params);
+                        return dynamoDbLib.call("scan", params);
 
                     case 4:
                         result = _context.sent;
 
-                        if (result.Item) {
-                            callback(null, (0, _responseLib.success)(result.Item));
-                        } else {
-                            callback(null, (0, _responseLib.failure)({ status: false, error: "Item not found." }));
-                        }
+                        callback(null, (0, _responseLib.success)(result.Items));
                         _context.next = 12;
                         break;
 
